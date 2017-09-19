@@ -84,8 +84,9 @@ public class CallBackHandler {
                                                 @RequestParam("hub.verify_token") final String verifyToken,
                                                 @RequestParam("hub.challenge") final String challenge) {
 
-        logger.debug("Received Webhook verification request - mode: {} | verifyToken: {} | challenge: {}", mode,
+        logger.info("Received Webhook verification request - mode: {} | verifyToken: {} | challenge: {}", mode,
                 verifyToken, challenge);
+        System.out.println("verifyToken "+challenge);
         try {
             return ResponseEntity.ok(this.receiveClient.verifyWebhook(mode, verifyToken, challenge));
         } catch (MessengerVerificationException e) {
@@ -101,7 +102,8 @@ public class CallBackHandler {
     public ResponseEntity<Void> handleCallback(@RequestBody final String payload,
                                                @RequestHeader("X-Hub-Signature") final String signature) {
 
-        logger.debug("Received Messenger Platform callback - payload: {} | signature: {}", payload, signature);
+        logger.info("Received Messenger Platform callback - payload: {} | signature: {}", payload, signature);
+        System.out.println("verifyToken "+signature);
         try {
             this.receiveClient.processCallbackPayload(payload, signature);
             logger.debug("Processed callback payload successfully");
