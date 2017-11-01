@@ -41,7 +41,7 @@ public class CallBackHandler {
             "https://raw.githubusercontent.com/fbsamples/messenger-platform-samples/master/node/public";
     public static final String GOOD_ACTION = "DEVELOPER_DEFINED_PAYLOAD_FOR_GOOD_ACTION";
     public static final String NOT_GOOD_ACTION = "DEVELOPER_DEFINED_PAYLOAD_FOR_NOT_GOOD_ACTION";
-
+    int a;
     private final MessengerReceiveClient receiveClient;
     private final MessengerSendClient sendClient;
 
